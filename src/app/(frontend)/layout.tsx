@@ -27,8 +27,8 @@ export default function FrontendLayout({
   return (
     <ThemeProvider>
       <div className={`${dotGothic.variable} ${ibmPlexMono.variable}`}>
-        <NoiseOverlay />
-        <ScanlineOverlay />
+        {/* <NoiseOverlay />
+        <ScanlineOverlay /> */}
         <Navbar />
         <main>{children}</main>
         <Footer />

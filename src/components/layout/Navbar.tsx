@@ -31,7 +31,7 @@ export function Navbar() {
           }}
         />
 
-        <nav className="relative mx-auto max-w-screen-xl px-5 md:px-12 lg:px-16 h-14 flex items-center justify-between gap-4">
+        <nav className="relative mx-auto max-w-screen-2xl px-5 md:px-12 lg:px-16 h-14 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link
             href="/"
