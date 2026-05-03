@@ -1,0 +1,63 @@
+/* DotGothic16 - Display/Hero headlines */
+.font-display {
+  font-family: var(--font-dot-gothic), 'Courier New', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* IBM Plex Mono - UI/system font */
+.font-mono {
+  font-family: var(--font-ibm-plex-mono), 'Courier New', monospace;
+}
+
+/* Oversized display scale */
+.text-display-2xl {
+  font-size: clamp(4rem, 12vw, 14rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.text-display-xl {
+  font-size: clamp(3rem, 8vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-size: clamp(2rem, 5vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Metadata label style */
+.label-meta {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+/* Section counter style */
+.counter-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Terminal text style */
+.terminal-text {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* Body text */
+.body-editorial {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.01em;
+}

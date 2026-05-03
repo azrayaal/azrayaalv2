@@ -1,26 +1,111 @@
 @import "tailwindcss";
+@import "../styles/animations.css";
+@import "../styles/effects.css";
+@import "../styles/typography.css";
 
+/* ─── Theme Tokens ──────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark (default) */
+  --bg:      #000000;
+  --fg:      #ffffff;
+  --fg-70:   rgba(255,255,255,0.70);
+  --fg-60:   rgba(255,255,255,0.60);
+  --fg-50:   rgba(255,255,255,0.50);
+  --fg-40:   rgba(255,255,255,0.40);
+  --fg-30:   rgba(255,255,255,0.30);
+  --fg-25:   rgba(255,255,255,0.25);
+  --fg-20:   rgba(255,255,255,0.20);
+  --fg-15:   rgba(255,255,255,0.15);
+  --fg-10:   rgba(255,255,255,0.10);
+  --fg-08:   rgba(255,255,255,0.08);
+  --fg-06:   rgba(255,255,255,0.06);
+  --fg-05:   rgba(255,255,255,0.05);
+  --fg-04:   rgba(255,255,255,0.04);
+  --fg-03:   rgba(255,255,255,0.03);
+  --fg-02:   rgba(255,255,255,0.02);
+  --fg-015:  rgba(255,255,255,0.015);
+  --navbar-bg: rgba(0,0,0,0.88);
+  --hover-row: rgba(255,255,255,0.018);
+  --noise-opacity: 0.04;
+  --scan-opacity: 0.04;
+  --scanline-color: rgba(0,0,0,0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="light"] {
+  --bg:      #F0EDE8;
+  --fg:      #0A0A0A;
+  /*
+   * Light-mode opacities are boosted ~1.8-2.5× vs dark equivalents.
+   * rgba(10,10,10,0.25) on #F0EDE8 renders far weaker than
+   * rgba(255,255,255,0.25) on #000 — higher opacity restores hierarchy.
+   */
+  --fg-70:   rgba(10,10,10,0.82);
+  --fg-60:   rgba(10,10,10,0.74);
+  --fg-50:   rgba(10,10,10,0.65);
+  --fg-40:   rgba(10,10,10,0.56);
+  --fg-30:   rgba(10,10,10,0.48);
+  --fg-25:   rgba(10,10,10,0.42);
+  --fg-20:   rgba(10,10,10,0.36);
+  --fg-15:   rgba(10,10,10,0.28);
+  --fg-10:   rgba(10,10,10,0.20);
+  --fg-08:   rgba(10,10,10,0.15);
+  --fg-06:   rgba(10,10,10,0.11);
+  --fg-05:   rgba(10,10,10,0.09);
+  --fg-04:   rgba(10,10,10,0.07);
+  --fg-03:   rgba(10,10,10,0.05);
+  --fg-02:   rgba(10,10,10,0.04);
+  --fg-015:  rgba(10,10,10,0.03);
+  --navbar-bg: rgba(240,237,232,0.92);
+  --hover-row: rgba(10,10,10,0.04);
+  --noise-opacity: 0.015;
+  --scan-opacity: 0.015;
+  /* Scanline sangat tipis di light mode — hampir tidak terlihat */
+  --scanline-color: rgba(0,0,0,0.018);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Tailwind Theme Extension ──────────────────────────────────── */
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --font-display: var(--font-dot-gothic), 'Courier New', monospace;
+  --font-mono: var(--font-ibm-plex-mono), 'Courier New', monospace;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--fg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ibm-plex-mono), 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--fg-15); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-30); }
+
+/* ─── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background: var(--fg-15);
+  color: var(--fg);
+}
+
+/* ─── Focus ─────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid var(--fg-40);
+  outline-offset: 2px;
 }
